@@ -1,10 +1,11 @@
 /** @jsx React.DOM */
+var TableComponent = require('./TableComponent');
 
 var React = require('react/addons');
 
-/* create factory with griddle component */
-//var Griddle = React.createFactory(require('griddle-react'));
+/* create table with griddle component */
 var Griddle = React.createFactory(require('griddle-react'));
+
 var urls = [{
         "original url": "facebook.com",
         "shortened url": "fb.com"
@@ -13,8 +14,16 @@ var urls = [{
         "shortened url": "gl.com"
     }];
 
-var shorten = [{"original url": "facebook.com",
-    "shortened url": "fb.com"}];
+var columnMeta = [
+    {
+        "columnName": "shortened url",
+        "order": 1,
+        "locked": false,
+        "visible": true,
+        "customComponent": LinkComponent
+    }];
+
+
 
 var ReactApp = React.createClass({
 
@@ -24,7 +33,7 @@ var ReactApp = React.createClass({
     },
     render: function () {
         return (
-            <div>
+            <div id="app">
             <div id="form">
                 <form>
                  <section>Paste your long url here</section>
@@ -32,11 +41,18 @@ var ReactApp = React.createClass({
                  <button type="submit" value="Submit">Shorten URL</button>
                 </form>
             </div>
-            <div id="table-area">
-                <Griddle results={urls} tableClassName="table"/>
-            </div>
+                <div id="table-area">
+                    <Griddle results={urls} tableClassName="table" columnMetadata={columnMeta} />
+                </div>
             </div>
         )
+    }
+});
+
+var LinkComponent = React.createClass({
+    render: function(){
+        url ="localhost:5000/" + this.props.rowData.state + "/" + this.props.data;
+        return <a href={url}>{this.props.data}</a>
     }
 });
 
