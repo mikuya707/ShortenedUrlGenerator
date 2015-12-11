@@ -1,0 +1,41 @@
+h1{
+    margin: 50px;
+    text-align: center;
+}
+form{
+    margin: 50px;
+    font-size: 24px;
+    background: lightgray;
+    padding: 20px;
+}
+section{
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display: block;
+}
+input{
+    width: 250px;
+    height: 24px;
+    font-size: 20px;
+}
+button {
+    height: 30px;
+    font-size: 20px;
+    color: black;
+    background: lightpink;
+    font-weight: bold;
+    /*border: 1px solid white;*/
+    border: none;
+    margin-left: 20px;
+    border-box: content-box;
+}
+
+button:hover {
+    color: #FFF;
+    background: #900;
+}
+
+#table-area{
+    margin: 50px;
+    font-size: 24px;
+}
