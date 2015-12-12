@@ -6,11 +6,12 @@ var express = require('express'),
     port = 5000,
     bodyParser = require('body-parser');
 
-// Make sure to include the JSX transpiler
 require('node-jsx').install();
+//require('babel/register');
 
 // Include static assets. Not advised for production
 app.use(express.static(path.join(__dirname, 'public')));
+
 // Set view path
 app.set('views', path.join(__dirname, 'views'));
 // set up ejs for templating. You can use whatever

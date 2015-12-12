@@ -1,4 +1,6 @@
-var React = require('react/addons');
+var React = require('react');
+//if (typeof window !== undefined) window.React = React;
+//var React = window.React = require('react/addons');
 var Griddle = React.createFactory(require('griddle-react'));
 var urls = require("./url");
 
