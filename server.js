@@ -6,6 +6,10 @@ var express = require('express'),
 
 require('node-jsx').install();
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 // Include static assets. Not advised for production
 app.use(express.static(path.join(__dirname, 'public')));
 

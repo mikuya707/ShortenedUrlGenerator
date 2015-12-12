@@ -1,5 +1,4 @@
 var React = require('react');
-
 var Griddle = React.createFactory(require('griddle-react'));
 
 
@@ -13,9 +12,10 @@ var LinkComponent = React.createClass({
 var ShortenLinkComponent = React.createClass({
     render: function(){
         url = this.props.data;
-        return <a href={this.props.rowData["original url"]}>{this.props.data}</a>
+        return <a href={url}>{this.props.data}</a>   //this.props.rowData["original url"]
     }
 });
+
 
 var columnMeta = [
     {

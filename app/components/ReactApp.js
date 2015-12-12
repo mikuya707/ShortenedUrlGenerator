@@ -1,6 +1,8 @@
 var TableComponent = require('./TableComponent');
 var React = require('react');
 var urls = require('./url');
+var xhr = require('superagent');
+
 
 /* create table with griddle component */
 var Griddle = React.createFactory(require('griddle-react'));
@@ -46,8 +48,6 @@ var ReactApp = React.createClass({
     },
     handleClick: function(e) {
         e.preventDefault();
-        console.log("clicked");
-        console.log("inputUrl", this.refs.inputUrl.value);
         urls.push({
             "original url": this.refs.inputUrl.value,
             "shortened url": "localhost:5000/" + this.shortenURL(this.refs.inputUrl.value)
@@ -56,6 +56,12 @@ var ReactApp = React.createClass({
             urls: urls
         });
         this.refs.inputUrl.value = "";
+
+        xhr.post('/').set('Content-Type', 'application/json').send({urls: this.state.urls}).end(function(err, res){
+            if(err) return err;
+            else console.log(res);
+        });
+
     },
     render: function () {
         return (
