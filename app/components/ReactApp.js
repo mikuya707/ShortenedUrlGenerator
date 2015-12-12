@@ -1,24 +1,9 @@
 var TableComponent = require('./TableComponent');
-
 var React = require('react');
-//var ExecutionEnvironment = require("react/lib/ExecutionEnvironment");
-
-
-
-//if (typeof window !== undefined) window.React = React;
-//var React = window.React = require('react/addons');
 var urls = require('./url');
-var GLOBALS_URLS = urls;
 
 /* create table with griddle component */
 var Griddle = React.createFactory(require('griddle-react'));
-
-
-//if (ExecutionEnvironment.canUseDOM) {
-    // ... has dom ..
-
-//}
-
 
 var ReactApp = React.createClass({
 
@@ -27,12 +12,6 @@ var ReactApp = React.createClass({
         console.log("yes");
 
     },
-    //componentWillMount: function(){
-    //    this.callback = function(data) {
-    //        console.log(data);
-    //        this.setState({urls: data.shortUrl});
-    //    };
-    //},
     getInitialState: function(){
         return {
             urls: urls,
@@ -62,7 +41,6 @@ var ReactApp = React.createClass({
         var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHUJKLMNOPQRSTUVWXYZ';
         var result = '';
 
-        console.log("Generating random alphanumeric string of length " + length);
         for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
         return result;
     },
@@ -70,7 +48,7 @@ var ReactApp = React.createClass({
         e.preventDefault();
         console.log("clicked");
         console.log("inputUrl", this.refs.inputUrl.value);
-        GLOBALS_URLS.push({
+        urls.push({
             "original url": this.refs.inputUrl.value,
             "shortened url": "localhost:5000/" + this.shortenURL(this.refs.inputUrl.value)
         });
@@ -90,7 +68,7 @@ var ReactApp = React.createClass({
                 </form>
             </div>
                 <div id="table-area">
-                    <TableComponent />
+                    <TableComponent value={this.state.urls} />
                 </div>
             </div>
         )

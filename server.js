@@ -1,5 +1,3 @@
-// server.js
-
 var express = require('express'),
     path = require('path'),
     app = express(),
@@ -7,7 +5,6 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 require('node-jsx').install();
-//require('babel/register');
 
 // Include static assets. Not advised for production
 app.use(express.static(path.join(__dirname, 'public')));

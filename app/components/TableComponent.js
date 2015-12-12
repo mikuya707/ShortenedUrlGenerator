@@ -1,8 +1,6 @@
 var React = require('react');
-//if (typeof window !== undefined) window.React = React;
-//var React = window.React = require('react/addons');
+
 var Griddle = React.createFactory(require('griddle-react'));
-var urls = require("./url");
 
 
 var LinkComponent = React.createClass({
@@ -15,7 +13,7 @@ var LinkComponent = React.createClass({
 var ShortenLinkComponent = React.createClass({
     render: function(){
         url = this.props.data;
-        return <a href={url}>{this.props.data}</a>
+        return <a href={this.props.rowData["original url"]}>{this.props.data}</a>
     }
 });
 
@@ -41,7 +39,7 @@ var columnMeta = [
 var TableComponent = React.createClass({
     render: function(){
         return (
-            <Griddle results={urls} tableClassName="table" columnMetadata={columnMeta}/>
+            <Griddle results={this.props.value} tableClassName="table" columnMetadata={columnMeta}/>
         )
     }
 

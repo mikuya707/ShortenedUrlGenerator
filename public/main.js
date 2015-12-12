@@ -1,23 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var TableComponent = require('./TableComponent');
-
 var React = require('react');
-//var ExecutionEnvironment = require("react/lib/ExecutionEnvironment");
-
-
-//if (typeof window !== undefined) window.React = React;
-//var React = window.React = require('react/addons');
 var urls = require('./url');
 
 /* create table with griddle component */
 var Griddle = React.createFactory(require('griddle-react'));
-
-
-//if (ExecutionEnvironment.canUseDOM) {
-    // ... has dom ..
-
-//}
-
 
 var ReactApp = React.createClass({displayName: "ReactApp",
 
@@ -26,12 +13,6 @@ var ReactApp = React.createClass({displayName: "ReactApp",
         console.log("yes");
 
     },
-    //componentWillMount: function(){
-    //    this.callback = function(data) {
-    //        console.log(data);
-    //        this.setState({urls: data.shortUrl});
-    //    };
-    //},
     getInitialState: function(){
         return {
             urls: urls,
@@ -61,7 +42,6 @@ var ReactApp = React.createClass({displayName: "ReactApp",
         var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHUJKLMNOPQRSTUVWXYZ';
         var result = '';
 
-        console.log("Generating random alphanumeric string of length " + length);
         for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
         return result;
     },
@@ -89,7 +69,7 @@ var ReactApp = React.createClass({displayName: "ReactApp",
                 )
             ), 
                 React.createElement("div", {id: "table-area"}, 
-                    React.createElement(TableComponent, null)
+                    React.createElement(TableComponent, {value: this.state.urls})
                 )
             )
         )
@@ -103,10 +83,8 @@ module.exports = ReactApp;
 
 },{"./TableComponent":2,"./url":3,"griddle-react":19,"react":176}],2:[function(require,module,exports){
 var React = require('react');
-//if (typeof window !== undefined) window.React = React;
-//var React = window.React = require('react/addons');
+
 var Griddle = React.createFactory(require('griddle-react'));
-var urls = require("./url");
 
 
 var LinkComponent = React.createClass({displayName: "LinkComponent",
@@ -119,7 +97,7 @@ var LinkComponent = React.createClass({displayName: "LinkComponent",
 var ShortenLinkComponent = React.createClass({displayName: "ShortenLinkComponent",
     render: function(){
         url = this.props.data;
-        return React.createElement("a", {href: url}, this.props.data)
+        return React.createElement("a", {href: this.props.rowData["original url"]}, this.props.data)
     }
 });
 
@@ -145,7 +123,7 @@ var columnMeta = [
 var TableComponent = React.createClass({displayName: "TableComponent",
     render: function(){
         return (
-            React.createElement(Griddle, {results: urls, tableClassName: "table", columnMetadata: columnMeta})
+            React.createElement(Griddle, {results: this.props.value, tableClassName: "table", columnMetadata: columnMeta})
         )
     }
 
@@ -155,34 +133,23 @@ var TableComponent = React.createClass({displayName: "TableComponent",
 
 module.exports = TableComponent;
 
-},{"./url":3,"griddle-react":19,"react":176}],3:[function(require,module,exports){
+},{"griddle-react":19,"react":176}],3:[function(require,module,exports){
 var urls = [{
-    "original url": "facebook.com",
-    "shortened url": "fb.com"
+    "original url": "http://facebook.com",
+    "shortened url": "localhost:5000/78oz4"
 },{
-    "original url": "google.com",
-    "shortened url": "gl.com"
+    "original url": "http://google.com",
+    "shortened url": "localhost:5000/0GUcW"
 }];
 
 module.exports = urls;
 
 },{}],4:[function(require,module,exports){
 var React = require('react');
-//if (typeof window !== undefined) window.React = React;
-//var React = require('react/addons');
 var ReactApp = require('./components/ReactApp');
 var TableComponent = require('./components/TableComponent');
 
-//var ReactDOM = require('react-dom');
-
-//var mountNode = document.getElementById('react-main-mount');
-//
-//ReactDOM.render(new ReactApp({}), mountNode);
-
 React.render(React.createElement(ReactApp, null), document.getElementById('react-main-mount'));
-//var mountTable= document.getElementById('table-area');
-//ReactDOM.render(new TableComponent({}), mountTable);
-//React.render(<TableComponent/>, document.getElementById('table-area'));
 
 },{"./components/ReactApp":1,"./components/TableComponent":2,"react":176}],5:[function(require,module,exports){
 // shim for using process in browser
