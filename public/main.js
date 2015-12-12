@@ -49,8 +49,6 @@ var ReactApp = React.createClass({displayName: "ReactApp",
     },
     handleClick: function(e) {
         e.preventDefault();
-        console.log("clicked");
-        console.log("inputUrl", this.refs.inputUrl.value);
         urls.push({
             "original url": this.refs.inputUrl.value,
             "shortened url": "localhost:5000/" + this.shortenURL(this.refs.inputUrl.value)
@@ -65,11 +63,6 @@ var ReactApp = React.createClass({displayName: "ReactApp",
             else console.log(res);
         });
 
-        //
-        //(this.state.urls, function(result) {
-        //    console.log(result);
-        //    console.log("post success");
-        //}.bind(this));
     },
     render: function () {
         return (
@@ -136,7 +129,7 @@ var columnMeta = [
 var TableComponent = React.createClass({displayName: "TableComponent",
     render: function(){
         return (
-            React.createElement(Griddle, {results: this.props.value, tableClassName: "table", columnMetadata: columnMeta})
+            React.createElement(Griddle, {results: this.props.value, tableClassName: "table", columnMetadata: columnMeta, maxRowsText: "5"})
         )
     }
 

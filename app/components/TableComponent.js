@@ -39,7 +39,7 @@ var columnMeta = [
 var TableComponent = React.createClass({
     render: function(){
         return (
-            <Griddle results={this.props.value} tableClassName="table" columnMetadata={columnMeta}/>
+            <Griddle results={this.props.value} tableClassName="table" columnMetadata={columnMeta} maxRowsText="10"/>
         )
     }
 
