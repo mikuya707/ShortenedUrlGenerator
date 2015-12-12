@@ -11,11 +11,13 @@
 
 **API 文档**
 
-Get /
-   获取主页
-POST /
+"Get /"
+   获取主页.
+   
+"POST /"
    生成的短链接发送到后端.
-Get /:shortCode
+   
+"Get /:shortCode"
    找到短字符相对应的原链接,跳转.
 
 **运行指示:**
