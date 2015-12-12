@@ -12,7 +12,7 @@ var LinkComponent = React.createClass({
 var ShortenLinkComponent = React.createClass({
     render: function(){
         url = this.props.data;
-        return <a href={url}>{this.props.data}</a>   //this.props.rowData["original url"]
+        return <a href={url}>{this.props.data}</a>   //without redirection on the server, use this.props.rowData["original url"]
     }
 });
 

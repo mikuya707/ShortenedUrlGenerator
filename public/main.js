@@ -102,7 +102,7 @@ var LinkComponent = React.createClass({displayName: "LinkComponent",
 var ShortenLinkComponent = React.createClass({displayName: "ShortenLinkComponent",
     render: function(){
         url = this.props.data;
-        return React.createElement("a", {href: url}, this.props.data)   //this.props.rowData["original url"]
+        return React.createElement("a", {href: url}, this.props.data)   //without redirection on the server, use this.props.rowData["original url"]
     }
 });
 
@@ -129,7 +129,7 @@ var columnMeta = [
 var TableComponent = React.createClass({displayName: "TableComponent",
     render: function(){
         return (
-            React.createElement(Griddle, {results: this.props.value, tableClassName: "table", columnMetadata: columnMeta, maxRowsText: "5"})
+            React.createElement(Griddle, {results: this.props.value, tableClassName: "table", columnMetadata: columnMeta, maxRowsText: "10"})
         )
     }
 
