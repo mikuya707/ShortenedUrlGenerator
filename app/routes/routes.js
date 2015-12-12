@@ -1,11 +1,12 @@
 var React = require('react/addons'),
     ReactApp = React.createFactory(require('../components/ReactApp'));
 
+var originalUrls = require("../components/url");
 
 
 
 module.exports = function(app) {
-    var urls;
+    var urls = originalUrls;
 
     app.get('/', function(req, res){
 

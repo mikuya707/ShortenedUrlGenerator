@@ -1,14 +1,44 @@
+@font-face {
+    font-family: 'penguin-attack';
+    src: url('PenguinAttack.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'the-rainmaker';
+    src: url('The%20Rainmaker.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background: url("http://image.naldzgraphics.net/2012/03/15-c08-1.jpg");
+    background-repeat: repeat;
+}
+
+#main{
+    margin: 40px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
 h1{
+    color: black;
     margin: 50px;
     text-align: center;
+    font-family: 'the-rainmaker';
+    font-weight: bold;
+    font-size: 58px;
+    padding-top: 20px;
 }
 form{
-    margin: 50px;
+    margin: 60px;
     font-size: 24px;
     background: lightgray;
     padding: 20px;
 }
 section{
+    font-family: 'the-rainmaker';
     margin-right: 20px;
     margin-bottom: 10px;
     display: block;
@@ -30,12 +60,19 @@ button {
     border-box: content-box;
 }
 
+
 button:hover {
     color: #FFF;
     background: #900;
 }
 
 #table-area{
-    margin: 50px;
+    margin: 60px;
     font-size: 24px;
+    padding-bottom: 40px;
+}
+
+span{
+    font-family: 'the-rainmaker';
+    font-size: 28px;
 }
