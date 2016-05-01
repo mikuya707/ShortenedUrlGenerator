@@ -50,7 +50,7 @@ var ReactApp = React.createClass({
         e.preventDefault();
         urls.push({
             "original url": this.refs.inputUrl.value,
-            "shortened url": "localhost:5000/" + this.shortenURL(this.refs.inputUrl.value)
+            "shortened url": "shorten-url-generator/" + this.shortenURL(this.refs.inputUrl.value)
         });
         this.setState({
             urls: urls

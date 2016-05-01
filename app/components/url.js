@@ -1,9 +1,9 @@
 var urls = [{
     "original url": "http://facebook.com",
-    "shortened url": "localhost:5000/78oz4"
+    "shortened url": "shorten-url-generator/78oz4"
 },{
     "original url": "http://google.com",
-    "shortened url": "localhost:5000/0GUcW"
+    "shortened url": "shorten-url-generator/0GUcW"
 }];
 
 module.exports = urls;
