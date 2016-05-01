@@ -51,7 +51,7 @@ var ReactApp = React.createClass({displayName: "ReactApp",
         e.preventDefault();
         urls.push({
             "original url": this.refs.inputUrl.value,
-            "shortened url": "http://shorten-url-generator.herokuapp.com/" + this.shortenURL(this.refs.inputUrl.value)
+            "shortened url": "/" + this.shortenURL(this.refs.inputUrl.value)
         });
         this.setState({
             urls: urls
@@ -142,10 +142,10 @@ module.exports = TableComponent;
 },{"griddle-react":19,"react":176}],3:[function(require,module,exports){
 var urls = [{
     "original url": "http://facebook.com",
-    "shortened url": "http://shorten-url-generator.herokuapp.com/78oz4"
+    "shortened url": "/78oz4"
 },{
     "original url": "http://google.com",
-    "shortened url": "http://shorten-url-generator.herokuapp.com/0GUcW"
+    "shortened url": "/0GUcW"
 }];
 
 module.exports = urls;
