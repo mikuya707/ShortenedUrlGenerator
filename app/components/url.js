@@ -1,9 +1,9 @@
 var urls = [{
     "original url": "http://facebook.com",
-    "shortened url": "shorten-url-generator/78oz4"
+    "shortened url": "http://shorten-url-generator.herokuapp.com/78oz4"
 },{
     "original url": "http://google.com",
-    "shortened url": "shorten-url-generator/0GUcW"
+    "shortened url": "http://shorten-url-generator.herokuapp.com/0GUcW"
 }];
 
 module.exports = urls;
