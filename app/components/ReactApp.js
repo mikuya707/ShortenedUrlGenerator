@@ -50,7 +50,7 @@ var ReactApp = React.createClass({
         e.preventDefault();
         urls.push({
             "original url": this.refs.inputUrl.value,
-            "shortened url": "shorten-url-generator.herokuapp.com/" + this.shortenURL(this.refs.inputUrl.value)
+            "shortened url": "http://shorten-url-generator.herokuapp.com/" + this.shortenURL(this.refs.inputUrl.value)
         });
         this.setState({
             urls: urls
