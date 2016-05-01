@@ -1,7 +1,7 @@
 var express = require('express'),
     path = require('path'),
     app = express(),
-    port = 5000,
+    port = process.env.PORT || 5000,
     bodyParser = require('body-parser');
 
 require('node-jsx').install();
