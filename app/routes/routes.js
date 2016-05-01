@@ -27,7 +27,7 @@ module.exports = function(app) {
         if(shortCode !== "favicon.ico"){
             console.log("what is urls", urls);
             urls.forEach(function(url){
-                if(url['shortened url'].slice(43) == shortCode){
+                if(url['shortened url'].slice(36) == shortCode){
                     var longUrl = url['original url']
                     console.log("redirection takes place", longUrl);
                     res.redirect(longUrl);
